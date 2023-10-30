@@ -1,0 +1,133 @@
+$default-color: #8ccff7;
+$first-color: #4e89ae;
+$second-color: #43658b;
+$third-color: #ed6663;
+$fourth-color: #ffa372;
+
+@mixin center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin breakpoint($max: 5000px, $min: 0px) {
+    @media screen and (max-width:$max) and (min-width:$min) {
+        @content;
+    }
+}
+
+body {
+    margin: 0;
+    background-color: rgb(224, 234, 237);
+}
+
+.container {
+    @include center()
+}
+
+.container.header {
+    background-color: $default-color;
+}
+
+.small-width, .medium-width, .large-width {
+    display: none;
+}
+
+.container-row {
+    margin-top: 50px;
+}
+
+.main-row {
+    height: 50px;
+    background-color: $first-color;
+
+    &:hover {
+        background-color: #444;
+    }
+}
+
+.second-row {
+    @extend .main-row;
+    background-color: $second-color;
+}
+
+.third-row {
+    @extend .main-row;
+    background-color: $third-color;
+}
+
+.fourth-row {
+    @extend .main-row;
+    background-color: $fourth-color;
+}
+
+.container.circle {
+    margin: 76px 0; 
+    .circles {  
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }    
+}
+
+.main-circle {
+    @include center();
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: $first-color;
+    cursor: pointer;
+    &:hover {
+        background-color: #444;
+    }
+}
+
+.second-circle {
+    @extend .main-circle;
+    height: 80px;
+    width: 80px;
+    background-color: $second-color;
+}
+
+.third-circle {
+    @extend .main-circle;
+    height: 90px;
+    width: 90px;
+    background-color: $third-color;
+}
+
+.fourth-circle {
+    @extend .main-circle;
+    height: 100px;
+    width: 100px;
+    background-color: $fourth-color;
+}
+
+footer {
+    height: 50px;
+    background-color: $default-color;
+}
+
+@include breakpoint($min:801px) {
+    .large-width {
+        display: block;
+    }
+}
+
+@include breakpoint(800px, 481px) {
+    .medium-width {
+        display: block;
+    }
+}
+
+@include breakpoint($max:620px) {
+    .circles {
+        flex-direction: column;
+    }    
+}
+
+@include breakpoint($max:480px) {
+    .small-width {
+        display: block;
+    }
+}
