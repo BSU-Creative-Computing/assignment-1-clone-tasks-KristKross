@@ -1,15 +1,18 @@
+// Naming 5 colours for ease
 $default-color: #8ccff7;
 $first-color: #4e89ae;
 $second-color: #43658b;
 $third-color: #ed6663;
 $fourth-color: #ffa372;
 
+// Mixin to center elements
 @mixin center() {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+// Mixin for media queries
 @mixin breakpoint($max: 5000px, $min: 0px) {
     @media screen and (max-width:$max) and (min-width:$min) {
         @content;
@@ -21,22 +24,27 @@ body {
     background-color: rgb(224, 234, 237);
 }
 
+// Container for elements
 .container {
     @include center()
 }
 
+// Container header
 .container.header {
     background-color: $default-color;
 }
 
+// Width images on display: none
 .small-width, .medium-width, .large-width {
     display: none;
 }
 
+// Container row
 .container-row {
     margin-top: 50px;
 }
 
+// First element of row
 .main-row {
     height: 50px;
     background-color: $first-color;
@@ -47,7 +55,7 @@ body {
 }
 
 .second-row {
-    @extend .main-row;
+    @extend .main-row; // Using extend to copy the main css for ease
     background-color: $second-color;
 }
 
@@ -61,6 +69,7 @@ body {
     background-color: $fourth-color;
 }
 
+// Container circle
 .container.circle {
     margin: 76px 0; 
     .circles {  
@@ -108,24 +117,28 @@ footer {
     background-color: $default-color;
 }
 
+// Media query to display 400x400 image
 @include breakpoint($min:801px) {
     .large-width {
         display: block;
     }
 }
 
+// Media query to display 300x300 image
 @include breakpoint(800px, 481px) {
     .medium-width {
         display: block;
     }
 }
 
+// Media query to column circles
 @include breakpoint($max:620px) {
     .circles {
         flex-direction: column;
     }    
 }
 
+// Media query to display 200x200 image
 @include breakpoint($max:480px) {
     .small-width {
         display: block;

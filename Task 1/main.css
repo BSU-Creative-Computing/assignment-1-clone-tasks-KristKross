@@ -10,7 +10,8 @@ main {
     background-color: white;
 }
 
-article img {
+/* Float all images in columns of 3 using calc */
+img {
     width: calc(100% / 3);
     float: left;
 }
@@ -27,6 +28,7 @@ footer {
     text-align: center;
 }
 
+/* Media query for website to have space on both sides */
 @media screen and (min-width: 1024px) {
     main {
         margin: auto;
@@ -34,6 +36,7 @@ footer {
     }
 }
 
+/* Media query to keep images in columns of 3 */
 @media screen and (max-width: 1024px) {
     section img {
         width: calc(100% / 3);
@@ -41,6 +44,7 @@ footer {
     }
 }
 
+/* Media query to have images in columns of 2 */
 @media screen and (max-width: 800px) {
     section img {
         width: 50%;
@@ -48,6 +52,7 @@ footer {
     }
 }
 
+/* Media query to have one image in one row. */
 @media screen and (max-width: 480px) {  
     section img {
         width: 100%;
