@@ -101,8 +101,7 @@ article {
 }
 
 .side-content {
-    height: max-content;
-    min-height: 200px;
+    height: 200px;
     padding-top: 10px;
     display: flex;
     flex-direction: column;
